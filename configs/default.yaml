@@ -1,0 +1,16 @@
+dataset_folder: flickr8k
+img_size: 224
+hidden_size: 512
+num_layers: 4
+epochs: 50
+batch_size: 128
+base_batch: 64
+base_lr: 1e-4
+num_workers: 4
+tb_log_dir: tb_logs
+logger_name: resnet_transformer
+split_ratios: [0.8, 0.1, 0.1]
+freeze_encoder: true
+precision: 16-mixed
+early_stop_patience: 6
+ckpt_path: null

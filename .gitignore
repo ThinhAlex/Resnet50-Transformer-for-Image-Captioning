@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# virtualenv / environment
+.env
+.venv
+venv/
+ENV/
+env/
+
+# Jupyter
+.ipynb_checkpoints
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE & editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logs and checkpoints
+tb_logs/
+**/checkpoints/
+*.ckpt
+
+# Dataset and inference outputs (do not commit heavy data)
+flickr8k/
+inference_results/
+
+# Model artifacts
+*.pth
+*.pt
+
+# Misc
+coverage.log
+*.log
+
+# Keep README, code, configs, scripts, requirements, etc. under source control
