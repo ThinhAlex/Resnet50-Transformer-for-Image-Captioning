@@ -42,7 +42,7 @@ class CaptionModel(pl.LightningModule):
         self.dropout_p = 0.1
         
         # CNN encoder 
-        self.cnn = timm.create_model('resnet34', pretrained=True)
+        self.cnn = timm.create_model('resnet50', pretrained=True)
         self.cnn.fc = nn.Identity() 
         
         # Linear projection for CNN features -> d_model
