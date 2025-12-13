@@ -4,8 +4,7 @@ hidden_size: 512
 num_layers: 4
 epochs: 50
 batch_size: 128
-base_batch: 64
-base_lr: 1e-4
+learning_rate: 1e-4
 num_workers: 4
 tb_log_dir: tb_logs
 logger_name: resnet_transformer

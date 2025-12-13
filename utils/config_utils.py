@@ -43,8 +43,8 @@ def normalize_config(cfg: Dict[str, Any]) -> Dict[str, Any]:
     This function does not modify the input mapping; it returns a **new** dict.
     """
     out = dict(cfg)
-    int_keys = ['batch_size', 'base_batch', 'hidden_size', 'num_layers', 'epochs', 'img_size', 'num_workers']
-    float_keys = ['base_lr', 'learning_rate']
+    int_keys = ['batch_size', 'hidden_size', 'num_layers', 'epochs', 'img_size', 'num_workers']
+    float_keys = ['learning_rate']
 
     for k in int_keys:
         if k in out and out[k] is not None:

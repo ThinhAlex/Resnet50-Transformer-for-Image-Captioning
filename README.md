@@ -12,6 +12,7 @@ BLEU evaluation.
 - Configuration via YAML and CLI flags
 - Checkpointing with hyperparameters
 - Automated inference which recovers configuration from the saved checkpoint
+ 
 
 ## Quick Start
 1. Install dependencies:
@@ -53,9 +54,8 @@ Example (YAML config): add `ckpt_path: tb_logs/resnet_transformer/version_5/chec
 If `ckpt_path` is not set, training will start from scratch.
 
 Note:
-- If YAML configs do not match the checkpoint, training would resume with the checkpoint hyperparameters. 
+- The YAML configs must match the checkpoint hyperparameters. 
 - If you forget the checkpoint hyperparameters, the project also includes `scripts/inspect_ckpt.py` which prints saved hparams from a checkpoint.
-
 
 ## Configuration
 All training and inference parameters are stored in `configs/default.yaml`. You
@@ -65,7 +65,7 @@ can override values on the command line with `--override key=value` pairs, e.g.
 python train.py --config configs/default.yaml --override batch_size=64 hidden_size=256
 ```
 
-Note: When passing values with `--override`, use Python literals (e.g. `batch_size=64`, `base_lr=1e-4`). Using strings or lists can cause type errors (e.g., when computing scaled learning rate). If you see a TypeError about multiplying a sequence by a float, check the config values types.
+Note: When passing values with `--override`, use Python literals (e.g. `batch_size=64`, `learning_rate=1e-4`). Using strings or lists can cause type errors; ensure numeric values are passed as ints/floats, not strings.
 
 ## Files
 - `dataset.py`: dataset and vocabulary implementation
