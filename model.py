@@ -48,8 +48,8 @@ class CaptionModel(pl.LightningModule):
         self.d_model = hidden_size
         self.pad_idx = self.vocab.stoi["<PAD>"]
         
-        # Architecture: ResNet34 (Encoder) -> Projection Layer -> Transformer (Decoder)
-        self.cnn = timm.create_model('resnet34', pretrained=True)
+        # Architecture: ResNet50 (Encoder) -> Projection Layer -> Transformer (Decoder)
+        self.cnn = timm.create_model('resnet50', pretrained=True)
         self.cnn.fc = nn.Identity()
         self.cnn_proj = nn.Linear(self.cnn.num_features, self.d_model)
         self.cnn_dropout = nn.Dropout(0.1)
@@ -190,6 +190,6 @@ class CaptionModel(pl.LightningModule):
             self.logger.experiment.add_text('Captions', f"Pred: {pred}", step)
 
     def configure_optimizers(self):
-        optimizer = torch.optim.Adam(self.parameters(), lr=self.learning_rate)
-        scheduler = ReduceLROnPlateau(optimizer, mode="max", factor=0.5, patience=3)
-        return {"optimizer": optimizer, "lr_scheduler": {"scheduler": scheduler, "monitor": "val_meteor"}}
+        optimizer = torch.optim.Adam(self.parameters(), lr=self.learning_rate, weight_decay=1e-4)
+        scheduler = ReduceLROnPlateau(optimizer, mode="max", factor=0.5, patience=4)
+        return {"optimizer": optimizer, "lr_scheduler": {"scheduler": scheduler, "monitor": "val_bleu"}}

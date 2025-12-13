@@ -41,8 +41,7 @@ the repo's `inference_results/` folder (if any). If you want to inspect results
 manually, open the saved PNG images or use Jupyter to display them in a cell.
 
 ### Resume training from a checkpoint
-To resume training from checkpoint, you can either pass a
-checkpoint path to the Trainer's `ckpt_path` parameter OR provides CLI argument `--ckpt_path` to `train.py`.
+To resume training from checkpoint, you can either provides CLI argument `--ckpt_path` to `train.py` OR pass a checkpoint path to `ckpt_path` in YAML file.
 
 Example (CLI):
 ```powershell
