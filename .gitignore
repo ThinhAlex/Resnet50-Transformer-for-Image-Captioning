@@ -31,7 +31,6 @@ tb_logs/
 
 # Dataset and inference outputs (do not commit heavy data)
 flickr8k/
-inference_results/
 
 # Model artifacts
 *.pth
