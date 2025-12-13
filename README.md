@@ -5,6 +5,19 @@ and a Transformer decoder on the Flickr8k dataset. The project uses
 PyTorch Lightning for training, timm for the encoder, and TorchMetrics for
 BLEU evaluation.
 
+<div align="center">
+  <table width="80%">
+    <tr>
+      <td width="50%"><img src="inference_results/result_10.png" alt="Image 2" width="100%"/></td>
+      <td width="50%"><img src="inference_results/result_3.png" alt="Image 3" width="100%"/></td>
+    </tr>
+    <tr>
+      <td width="50%"><img src="inference_results/result_9.png" alt="Image 9" width="100%"/></td>
+      <td width="50%"><img src="inference_results/result_2.png" alt="Image 10" width="100%"/></td>
+    </tr>
+  </table>
+</div>
+
 ## Features
 - ResNet-based CNN encoder (timm)
 - Transformer-based decoder
