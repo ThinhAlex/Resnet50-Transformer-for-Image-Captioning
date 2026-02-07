@@ -75,13 +75,12 @@ def main():
         img, _, img_ids = batch
         img = img.to(device)
         
-        # generate_caption expects (C,H,W); squeeze batch dim
+        # generate_caption expects (C,H,W), squeeze batch dim
         gen_text = loaded_model.generate_caption(img.squeeze(0))
         
         img_id = img_ids[0]
         refs = dataset.df[dataset.df['image'] == img_id]['caption'].tolist()
         
-        # --- CHANGED HERE: Take only the first reference caption ---
         if refs:
             real_text = refs[0]
         else:
